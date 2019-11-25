@@ -1,0 +1,6 @@
+lib
+es
+node_modules
+*.d.ts
+*.map
+src/**/*.js

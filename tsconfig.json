@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "noLib": false,
+    "module": "es6",
+    "target": "es6",
+    "rootDir": "./src",
+    "outDir": "./es",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["node", "react", "react-dom"],
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "declarationMap": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true
+  },
+  "exclude": ["node_modules", "lib"],
+  "include": ["src", "**/*.tsx", "**/*.ts"]
+}

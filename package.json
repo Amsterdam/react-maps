@@ -1,0 +1,85 @@
+{
+  "name": "@datapunt/react-maps",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "license": "MPL-2.0",
+  "author": "Datapunt Amsterdam",
+  "homepage": "",
+  "directories": {
+    "lib": "es",
+    "test": "__tests__"
+  },
+  "files": [
+    "es"
+  ],
+  "jsnext:main": "./es/index.js",
+  "main": "./es/index.js",
+  "module": "./es/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "geojson": "^0.5.0",
+    "leaflet-draw": "^1.0.4",
+    "leaflet.markercluster": "^1.4.1",
+    "leaflet.nontiledlayer": "^1.0.7"
+  },
+  "peerDependencies": {
+    "leaflet": "^1.5.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^6.1.1",
+    "@types/eslint-plugin-prettier": "^2.2.0",
+    "@types/geojson": "^7946.0.7",
+    "@types/leaflet": "^1.5.1",
+    "@types/leaflet-draw": "^1.0.0",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.2.0",
+    "eslint": "6.1.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-config-standard": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.4",
+    "lerna": "^3.16.4",
+    "leaflet": "^1.5.1",
+    "lint-staged": "^9.2.3",
+    "prettier": "^1.18.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "style-loader": "^1.0.0",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.tsx": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
+  }
+}
