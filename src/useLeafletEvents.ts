@@ -1,17 +1,17 @@
 import { useEffect } from 'react'
-import { LayerGroup, LeafletEventHandlerFn, Map } from 'leaflet'
+import { LayerGroup, LeafletEventHandlerFn, Map, Marker } from 'leaflet'
 
 export default (
-  mapInstance: Map | LayerGroup | null,
+  instance: Map | LayerGroup | Marker | null,
   events?: { [key: string]: LeafletEventHandlerFn },
 ) => {
   useEffect(() => {
     const eventsArray = Object.entries(events || {})
     if (eventsArray.length) {
       eventsArray.forEach(([eventName, method]) => {
-        if (mapInstance) {
+        if (instance) {
           try {
-            mapInstance.on(eventName, method)
+            instance.on(eventName, method)
           } catch (e) {
             // eslint-disable-next-line no-console
             console.warn(`${e}. Perhaps ${eventName} the event doesn't exist`)
@@ -22,11 +22,11 @@ export default (
     return () => {
       if (eventsArray.length) {
         eventsArray.forEach(([eventName, method]) => {
-          if (mapInstance) {
-            mapInstance.off(eventName, method)
+          if (instance) {
+            instance.off(eventName, method)
           }
         })
       }
     }
-  }, [mapInstance, events])
+  }, [instance, events])
 }
