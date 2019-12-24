@@ -16,7 +16,7 @@ type Props = {
 const Map = React.forwardRef<
   RefObject<HTMLDivElement>,
   React.HTMLProps<HTMLElement> & Props
->(({ children, events, options }, ref) => {
+>(({ children, events, options, ...otherProps }, ref) => {
   const [mapInstance, setMapInstance] = React.useState<
     MapType | LayerGroup | null
   >(null)
@@ -50,6 +50,7 @@ const Map = React.forwardRef<
           width: '100%',
           height: '300px',
         }}
+        {...otherProps}
       />
       {children}
     </MapContext.Provider>

@@ -19,6 +19,7 @@ module.exports = {
     'global-require': 0,
     'prettier/prettier': ['error'],
     'react/prop-types': 0,
+    'react/jsx-props-no-spreading': 0,
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
