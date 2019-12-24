@@ -20,11 +20,7 @@ const Marker: React.FC<Props> = ({ latlng, events, options }) => {
   )
   const { mapInstance } = useMapInstance()
 
-  useEffect(() => {
-    if (markerInstance) {
-      useLeafletEvents(markerInstance, events)
-    }
-  }, [markerInstance])
+  useLeafletEvents(markerInstance, events)
 
   // add marker
   useEffect(() => {
