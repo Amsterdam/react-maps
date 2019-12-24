@@ -32,6 +32,9 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/eslint": "^6.1.1",
     "@types/eslint-plugin-prettier": "^2.2.0",
