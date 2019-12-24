@@ -16,10 +16,10 @@
   "main": "./es/index.js",
   "module": "./es/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf es && tsc",
     "start": "webpack-dev-server",
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "prepublish": "rm -rf es && yarn build"
+    "prepublish": "yarn build"
   },
   "dependencies": {
     "geojson": "^0.5.0",
