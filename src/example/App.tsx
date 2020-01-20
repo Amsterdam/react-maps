@@ -49,16 +49,21 @@ const App = () => {
         options={{
           center: [52.3731081, 4.8932945],
           zoom: 16,
-          maxBounds: [[52.25168, 4.64034], [52.50536, 5.10737]],
+          maxBounds: [
+            [52.25168, 4.64034],
+            [52.50536, 5.10737],
+          ],
         }}
       >
         <Marker
           setInstance={setMarkerInstance}
           options={{
             icon: L.icon({
-              iconUrl: require('leaflet/dist/images/marker-icon.png'),
-              iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-              shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+              iconUrl: require('leaflet/dist/images/marker-icon.png').default,
+              iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png')
+                .default,
+              shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+                .default,
               iconSize: [25, 41],
               iconAnchor: [12, 41],
               popupAnchor: [1, -34],
@@ -69,7 +74,12 @@ const App = () => {
           args={[markerPosition]}
         />
         <Rectangle
-          args={[[[52.3731081, 4.8932945], [52.4731081, 4.9932945]]]}
+          args={[
+            [
+              [52.3731081, 4.8932945],
+              [52.4731081, 4.9932945],
+            ],
+          ]}
           options={{ color: '#ff7800', weight: 1 }}
         />
         <Circle
