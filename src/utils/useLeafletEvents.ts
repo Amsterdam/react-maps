@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
-import { LayerGroup, LeafletEventHandlerFn, Map, Marker } from 'leaflet'
+import { LeafletEventHandlerFn } from 'leaflet'
+import { AllLeafletInstances } from '../types'
 
-export default (
-  instance: Map | LayerGroup | Marker | null,
+export default <T extends AllLeafletInstances>(
+  instance: T | null,
   events?: { [key: string]: LeafletEventHandlerFn },
 ) => {
   useEffect(() => {

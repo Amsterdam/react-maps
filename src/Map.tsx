@@ -1,12 +1,8 @@
 import React, { RefObject, useEffect, useRef } from 'react'
-import L, {
-  Map as MapType,
-  LayerGroup,
-  LeafletEventHandlerFn,
-  MapOptions,
-} from 'leaflet'
+import L, { LeafletEventHandlerFn, MapOptions } from 'leaflet'
 import MapContext from './MapContext'
-import useLeafletEvents from './useLeafletEvents'
+import useLeafletEvents from './utils/useLeafletEvents'
+import { AllLeafletInstances } from './types'
 
 type Props = {
   events?: { [key: string]: LeafletEventHandlerFn }
@@ -17,11 +13,12 @@ const Map = React.forwardRef<
   RefObject<HTMLDivElement>,
   React.HTMLProps<HTMLElement> & Props
 >(({ children, events, options, ...otherProps }, ref) => {
-  const [mapInstance, setMapInstance] = React.useState<
-    MapType | LayerGroup | null
-  >(null)
+  const [
+    mapInstance,
+    setMapInstance,
+  ] = React.useState<AllLeafletInstances | null>(null)
 
-  const mapRef = ref || useRef<HTMLDivElement>(null)
+  const mapRef = ref || useRef<HTMLDivElement>()
 
   // Set events
   useLeafletEvents(mapInstance, events)
@@ -30,10 +27,8 @@ const Map = React.forwardRef<
   useEffect(() => {
     // @ts-ignore
     if (mapRef && mapRef.current) {
-      setMapInstance(
-        // @ts-ignore
-        L.map(mapRef.current, options || {}),
-      )
+      // @ts-ignore
+      setMapInstance(L.map(mapRef.current, options || {}))
     }
   }, [])
 
@@ -48,7 +43,7 @@ const Map = React.forwardRef<
         ref={mapRef}
         style={{
           width: '100%',
-          height: '300px',
+          height: '800px',
         }}
         {...otherProps}
       />

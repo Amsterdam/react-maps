@@ -13,7 +13,7 @@ As compared to the existing [react-leaflet](https://react-leaflet.js.org/), we w
 ## Usage
 
 Install dependencies: `yarn`
-Start the example app: `yarn start`
+Start the example app: `yarn start` and check out `http://localhost:8080`
 
 Checkout `./src/example/App.tsx` for how to implement the components.
 

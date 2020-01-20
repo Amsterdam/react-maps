@@ -1,7 +1,7 @@
 import React from 'react'
 import 'leaflet-draw'
 import 'leaflet-draw/dist/leaflet.draw.css'
-import useLeafletInstance from './useMapInstance'
+import useLeafletInstance from './utils/useMapInstance'
 
 const Draw = () => {
   const { mapInstance, L } = useLeafletInstance()
