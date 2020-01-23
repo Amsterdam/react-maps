@@ -1,11 +1,11 @@
 import React, { RefObject, useEffect, useRef } from 'react'
-import L, { LeafletEventHandlerFn, MapOptions } from 'leaflet'
+import L, { LeafletEventHandlerFnMap, MapOptions } from 'leaflet'
 import MapContext from './MapContext'
 import useLeafletEvents from './utils/useLeafletEvents'
 import { AllLeafletInstances } from './types'
 
 type Props = {
-  events?: { [key: string]: LeafletEventHandlerFn }
+  events?: LeafletEventHandlerFnMap
   options?: MapOptions
 }
 

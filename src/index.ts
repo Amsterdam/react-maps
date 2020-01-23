@@ -18,8 +18,11 @@ import {
   TooltipOptions,
   PopupOptions,
   Popup as PopupType,
+  GeoJSON as GeoJSONType,
+  GeoJSONOptions,
 } from 'leaflet'
 import { memo } from 'react'
+import { GeoJsonObject } from 'geojson'
 import createLeafletComponent from './createLeafletComponent'
 
 export { default as Map } from './Map'
@@ -72,3 +75,9 @@ export const Circle = createLeafletComponent<
   [LatLngExpression],
   CircleMarkerOptions
 >('circle')
+
+export const GeoJSON = createLeafletComponent<
+  GeoJSONType,
+  [GeoJsonObject],
+  GeoJSONOptions
+>('geoJSON')

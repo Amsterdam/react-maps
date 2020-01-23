@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import { LeafletEventHandlerFn } from 'leaflet'
+import { LeafletEventHandlerFnMap } from 'leaflet'
 import { AllLeafletInstances } from '../types'
 
 export default <T extends AllLeafletInstances>(
   instance: T | null,
-  events?: { [key: string]: LeafletEventHandlerFn },
+  events?: LeafletEventHandlerFnMap,
 ) => {
   useEffect(() => {
     const eventsArray = Object.entries(events || {})

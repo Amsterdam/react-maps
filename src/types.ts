@@ -1,5 +1,6 @@
 import {
   Circle,
+  GeoJSON,
   ImageOverlay,
   LayerGroup,
   Marker,
@@ -18,3 +19,4 @@ export type AllLeafletInstances =
   | TileLayer
   | Tooltip
   | Popup
+  | GeoJSON
