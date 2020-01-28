@@ -3,12 +3,12 @@ import L, { LeafletEventHandlerFnMap, MapOptions } from 'leaflet'
 import MapContext from './MapContext'
 import useLeafletEvents from './utils/useLeafletEvents'
 
-type Props = {
+export interface MapProps {
   events?: LeafletEventHandlerFnMap
   options?: MapOptions
 }
 
-const Map: React.FC<React.HTMLProps<HTMLDivElement> & Props> = ({
+const Map: React.FC<React.HTMLProps<HTMLDivElement> & MapProps> = ({
   children,
   events,
   options,
@@ -17,13 +17,11 @@ const Map: React.FC<React.HTMLProps<HTMLDivElement> & Props> = ({
   const [mapInstance, setMapInstance] = React.useState<L.Map | null>(null)
   const mapRef = useRef<HTMLDivElement>(null)
 
-  // Set events
   useLeafletEvents(mapInstance, events)
 
-  // Initialize
   useEffect(() => {
     if (mapRef.current !== null) {
-      setMapInstance(L.map(mapRef.current, options || {}))
+      setMapInstance(new L.Map(mapRef.current, options))
     }
   }, [])
 
