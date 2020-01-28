@@ -1,10 +1,11 @@
 import React from 'react'
+import L from 'leaflet'
 import 'leaflet-draw'
 import 'leaflet-draw/dist/leaflet.draw.css'
-import useLeafletInstance from './utils/useMapInstance'
+import useMapInstance from './utils/useMapInstance'
 
 const Draw = () => {
-  const { mapInstance, L } = useLeafletInstance()
+  const mapInstance = useMapInstance()
 
   React.useEffect(() => {
     if (mapInstance) {

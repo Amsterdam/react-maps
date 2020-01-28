@@ -46,6 +46,10 @@ const App = () => {
             console.log('click')
           },
         }}
+        style={{
+          width: '100%',
+          height: '100vh',
+        }}
         options={{
           center: [52.3731081, 4.8932945],
           zoom: 16,

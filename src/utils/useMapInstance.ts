@@ -1,14 +1,10 @@
 import React from 'react'
-import L from 'leaflet'
 import MapContext from '../MapContext'
 
-const useLeafletInstance = () => {
+const useMapInstance = () => {
   const { mapInstance } = React.useContext(MapContext)
 
-  return {
-    mapInstance,
-    L,
-  }
+  return mapInstance
 }
 
-export default useLeafletInstance
+export default useMapInstance
