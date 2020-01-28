@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { LeafletEventHandlerFnMap } from 'leaflet'
+import { LeafletEventHandlerFnMap, Map } from 'leaflet'
 import { AllLeafletInstances } from '../types'
 
-export default <T extends AllLeafletInstances>(
+export default <T extends AllLeafletInstances | Map>(
   instance: T | null,
   events?: LeafletEventHandlerFnMap,
 ) => {

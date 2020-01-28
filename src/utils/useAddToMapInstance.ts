@@ -6,7 +6,7 @@ export default <T extends AllLeafletInstances>(
   instance: Partial<AllLeafletInstances>,
   setInstance: Function,
 ) => {
-  const { mapInstance } = useMapInstance()
+  const mapInstance = useMapInstance()
   const [myInstance, setMyInstance] = useState<T>()
 
   useEffect(() => {

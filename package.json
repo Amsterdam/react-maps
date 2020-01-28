@@ -1,6 +1,6 @@
 {
   "name": "@datapunt/react-maps",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "ReactJS wrapped around Leaflet",
   "license": "MPL-2.0",
   "author": "Datapunt Amsterdam",
@@ -62,8 +62,8 @@
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.0.10",
-    "lerna": "^3.20.2",
     "leaflet": "^1.6.0",
+    "lerna": "^3.20.2",
     "lint-staged": "^10.0.0",
     "prettier": "^1.19.1",
     "react": "^16.12.0",

@@ -1,8 +1,8 @@
 import React from 'react'
+import { Map } from 'leaflet'
 
-const value: any = {
-  layers: [],
-  mapRef: null,
-}
-const MapContext = React.createContext(value)
+const MapContext = React.createContext<{ mapInstance: Map | null }>({
+  mapInstance: null,
+})
+
 export default MapContext
