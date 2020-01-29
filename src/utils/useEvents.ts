@@ -2,7 +2,18 @@ import { useEffect } from 'react'
 import { LeafletEventHandlerFnMap, Map } from 'leaflet'
 import { AllLeafletInstances } from '../types'
 
-export default <T extends AllLeafletInstances | Map>(
+/**
+ * @example
+ * useEvents(markerInstance, {
+ *   click: (e) => {
+ *    console.log('Clicked!', e.latlng)
+ *   }
+ * })
+ *
+ * @param instance The leaflet instance
+ * @param events Leaflet event handlers, check https://leafletjs.com/reference-1.6.0.html#map-event
+ */
+const useEvents = <T extends AllLeafletInstances | Map>(
   instance: T | null,
   events?: LeafletEventHandlerFnMap,
 ) => {
@@ -31,3 +42,5 @@ export default <T extends AllLeafletInstances | Map>(
     }
   }, [instance, events])
 }
+
+export default useEvents

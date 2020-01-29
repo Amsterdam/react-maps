@@ -27,6 +27,9 @@ import createLeafletComponent from './createLeafletComponent'
 
 export { default as Map } from './Map'
 export { default as useMapInstance } from './utils/useMapInstance'
+export { default as useMapEvents } from './utils/useMapEvents'
+export { default as useEvents } from './utils/useEvents'
+
 export { createLeafletComponent }
 
 export const Marker = memo(

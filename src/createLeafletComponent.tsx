@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import L, { LeafletEventHandlerFn } from 'leaflet'
 import useAddToMapInstance from './utils/useAddToMapInstance'
-import useLeafletEvents from './utils/useLeafletEvents'
+import useEvents from './utils/useEvents'
 import { AllLeafletInstances } from './types'
 
 /**
@@ -45,7 +45,7 @@ function createLeafletComponent<
       }, []),
     )
 
-    useLeafletEvents<T>(instance, events)
+    useEvents<T>(instance, events)
 
     return null
   }
