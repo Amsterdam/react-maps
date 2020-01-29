@@ -14,7 +14,8 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
-## Unreleased
+## 0.5.0
+
 - Added: useEvents and useMapEvents hook
 - Added: customAdd prop to leaflet components
 
