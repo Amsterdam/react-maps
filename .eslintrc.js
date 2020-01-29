@@ -4,8 +4,9 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
+    'jest/globals': true,
   },
-  plugins: ['prettier', '@typescript-eslint'],
+  plugins: ['jest', 'prettier', '@typescript-eslint'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -16,6 +17,7 @@ module.exports = {
   },
   extends: ['airbnb', 'prettier'],
   rules: {
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'global-require': 0,
     'prettier/prettier': ['error'],
     'react/prop-types': 0,
