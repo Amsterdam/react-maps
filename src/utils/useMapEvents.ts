@@ -6,7 +6,9 @@ import useEvents from './useEvents'
  * Uses useEvents hook with mapInstance
  * @param events Leaflet event handlers, check https://leafletjs.com/reference-1.6.0.html#map-event
  */
-export default (events?: LeafletEventHandlerFnMap) => {
+const useMapEvents = (events?: LeafletEventHandlerFnMap) => {
   const mapInstance = useMapInstance()
   useEvents<Map>(mapInstance, events)
 }
+
+export default useMapEvents

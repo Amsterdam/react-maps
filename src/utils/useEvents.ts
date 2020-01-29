@@ -13,7 +13,7 @@ import { AllLeafletInstances } from '../types'
  * @param instance The leaflet instance
  * @param events Leaflet event handlers, check https://leafletjs.com/reference-1.6.0.html#map-event
  */
-export default <T extends AllLeafletInstances | Map>(
+const useEvents = <T extends AllLeafletInstances | Map>(
   instance: T | null,
   events?: LeafletEventHandlerFnMap,
 ) => {
@@ -42,3 +42,5 @@ export default <T extends AllLeafletInstances | Map>(
     }
   }, [instance, events])
 }
+
+export default useEvents
