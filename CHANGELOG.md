@@ -16,6 +16,7 @@ Prefix the change with one of these keywords:
 
 ## Unreleased
 - Added: useEvents and useMapEvents hook
+- Added: customAdd prop to leaflet components
 
 ## 0.4.0
 

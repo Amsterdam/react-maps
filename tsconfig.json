@@ -6,7 +6,7 @@
     "rootDir": "./src",
     "outDir": "./es",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["node", "react", "react-dom"],
+    "types": ["node", "react", "react-dom", "jest"],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",

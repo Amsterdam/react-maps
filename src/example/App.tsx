@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import Map from '../Map'
-import { TileLayer, Marker, Rectangle, Circle } from '..'
+import { TileLayer, Marker, Rectangle, Circle, Popup } from '..'
 
 const App = () => {
   const [markerInstance, setMarkerInstance] = React.useState()
@@ -12,6 +12,7 @@ const App = () => {
     lng: 4.8932945,
   })
   const [circleRadius, setCircleRadius] = React.useState(300)
+
   const { lat, lng } = markerPosition
 
   function moveMarker() {
@@ -76,6 +77,14 @@ const App = () => {
             }),
           }}
           args={[markerPosition]}
+        />
+        <Popup
+          customAdd={(popup, mapInstance) => {
+            return popup
+              .setLatLng([52.3731081, 4.8932945])
+              .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+              .openOn(mapInstance)
+          }}
         />
         <Rectangle
           args={[

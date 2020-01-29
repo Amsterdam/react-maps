@@ -14,10 +14,11 @@ function createLeafletComponent<
   V
 >(leafletComponentName: string) {
   type Props = {
-    args: U
-    options: V
+    args?: U
+    options?: V
     setInstance?: (instance: T) => void
     events?: { [key: string]: LeafletEventHandlerFn }
+    customAdd?: (instance: T, mapInstance: L.Map) => T
   }
 
   /**
@@ -25,13 +26,16 @@ function createLeafletComponent<
    * @param args {Array} The first arguments to be given to the leaflet component
    * @param options The component options
    * @param setInstance Use this callback to set the state of the component instance, so you can call leaflet methods on it eg. MarkerInstance.bindPopup()...
+   * @param customAdd If you want to call methods of the component before adding it to the map, or you need to use a different method to add a component to the map,
+   * you can use this callback function
    * @constructor
    */
   const LeafletComponent: React.FC<Props> = ({
     events,
-    args,
-    options,
+    args = [],
+    options = [],
     setInstance,
+    customAdd,
   }) => {
     const instance: T = L[leafletComponentName](...[...args, options])
 
@@ -43,6 +47,7 @@ function createLeafletComponent<
           setInstance(i)
         }
       }, []),
+      customAdd,
     )
 
     useEvents<T>(instance, events)
