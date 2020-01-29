@@ -18,6 +18,7 @@
   "scripts": {
     "build": "rm -rf es && tsc",
     "start": "webpack-dev-server",
+    "lint": "eslint ./ --ext .ts,.tsx",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "prepublish": "yarn build"
   },
