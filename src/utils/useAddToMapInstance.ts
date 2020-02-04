@@ -13,6 +13,21 @@ export default <T extends AllLeafletInstances>(
     AllLeafletInstances
   >()
 
+  // Cleanup
+  useEffect(
+    () => () => {
+      if (
+        mapInstance &&
+        componentInstance &&
+        mapInstance.hasLayer(componentInstance)
+      ) {
+        componentInstance.removeFrom(mapInstance)
+      }
+    },
+    [componentInstance, mapInstance],
+  )
+
+  // Add to map instance
   useEffect(() => {
     if (mapInstance && !componentInstance) {
       setComponentInstance(
@@ -23,6 +38,7 @@ export default <T extends AllLeafletInstances>(
     }
   }, [instance, mapInstance, setInstance])
 
+  // Call setInstance when componentInstance is set
   useEffect(() => {
     if (setInstance && componentInstance) {
       setInstance(componentInstance)
