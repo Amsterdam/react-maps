@@ -1,4 +1,3 @@
-import { Map } from 'leaflet'
 import { renderHook } from '@testing-library/react-hooks'
 import useAddToMapInstance from './useAddToMapInstance'
 import * as useMapInstance from './useMapInstance'
@@ -6,10 +5,11 @@ import * as useMapInstance from './useMapInstance'
 jest.mock('leaflet')
 
 describe('useAddToMapInstance', () => {
-  const mockedMapInstance = {} as Map
-  const addToMock = jest.fn().mockReturnValue('addToResult')
+  const mockedMapInstance = { hasLayer: jest.fn().mockReturnValue(true) } as any
+  const removeFromMock = jest.fn()
+  const addToMock = jest.fn(() => ({ removeFrom: removeFromMock }))
   const setInstanceMock = jest.fn()
-  const customAddMock = jest.fn().mockReturnValue('customAddResult')
+  const customAddMock = jest.fn(() => ({ removeFrom: removeFromMock }))
   const instanceMock = {
     addTo: addToMock,
   }
@@ -17,6 +17,7 @@ describe('useAddToMapInstance', () => {
   beforeEach(() => {
     jest.spyOn(useMapInstance, 'default').mockReturnValue(mockedMapInstance)
   })
+
   afterEach(() => {
     jest.spyOn(useMapInstance, 'default').mockReset()
     addToMock.mockClear()
@@ -28,7 +29,7 @@ describe('useAddToMapInstance', () => {
     renderHook(() => useAddToMapInstance(instanceMock as any, setInstanceMock))
 
     expect(addToMock).toHaveBeenCalledWith(mockedMapInstance)
-    expect(setInstanceMock).toHaveBeenCalledWith('addToResult')
+    expect(setInstanceMock).toHaveBeenCalled()
   })
 
   it('should not call the addTo method, but call the customAdd function instead', () => {
@@ -38,7 +39,7 @@ describe('useAddToMapInstance', () => {
 
     expect(addToMock).not.toHaveBeenCalledWith(mockedMapInstance)
     expect(customAddMock).toHaveBeenCalledWith(instanceMock, mockedMapInstance)
-    expect(setInstanceMock).toHaveBeenCalledWith('customAddResult')
+    expect(setInstanceMock).toHaveBeenCalled()
   })
 
   it('should only call setInstance once', () => {
@@ -50,5 +51,15 @@ describe('useAddToMapInstance', () => {
     rerender()
 
     expect(setInstanceMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('should call removeFrom method when component will unmount', () => {
+    const { unmount } = renderHook(() =>
+      useAddToMapInstance(instanceMock as any, setInstanceMock),
+    )
+
+    unmount()
+
+    expect(removeFromMock).toHaveBeenCalled()
   })
 })
