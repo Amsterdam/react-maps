@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## 0.6.0
+
+- Fixed: remove layer from mapInstance when component will unmount
+
 ## 0.5.0
 
 - Added: useEvents and useMapEvents hook
