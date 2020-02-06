@@ -6,11 +6,12 @@
   "author": "Datapunt Amsterdam",
   "homepage": "",
   "directories": {
-    "lib": "es",
+    "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "es"
+    "es",
+    "lib"
   ],
   "jsnext:main": "./es/index.js",
   "main": "./lib/index.js",
