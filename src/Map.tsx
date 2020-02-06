@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import L, { LeafletEventHandlerFnMap, MapOptions } from 'leaflet'
+import L, {
+  LeafletEventHandlerFnMap,
+  MapOptions,
+  Map as MapType,
+} from 'leaflet'
 import MapContext from './MapContext'
-import useMapEvents from './utils/useMapEvents'
+import useEvents from './utils/useEvents'
 
 export interface MapProps {
   events?: LeafletEventHandlerFnMap
@@ -18,7 +22,7 @@ const Map: React.FC<React.HTMLProps<HTMLDivElement> & MapProps> = ({
   const mapRef = useRef<HTMLDivElement>(null)
 
   // Set events
-  useMapEvents(events)
+  useEvents<MapType>(mapInstance, events)
 
   useEffect(() => {
     if (mapRef.current !== null) {
