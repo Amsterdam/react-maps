@@ -13,10 +13,10 @@
     "es"
   ],
   "jsnext:main": "./es/index.js",
-  "main": "./es/index.js",
+  "main": "./lib/index.js",
   "module": "./es/index.js",
   "scripts": {
-    "build": "rm -rf es && tsc",
+    "build": "rm -rf es && tsc && tsc -p ./tsconfig.es5.json",
     "start": "webpack-dev-server",
     "lint": "eslint ./ --ext .ts,.tsx",
     "test": "yarn jest",
