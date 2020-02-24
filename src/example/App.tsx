@@ -5,9 +5,9 @@ import Map from '../Map'
 import { TileLayer, Marker, Rectangle, Circle, Popup } from '..'
 
 const App = () => {
-  const [markerInstance, setMarkerInstance] = React.useState()
-  const [circleInstance, setCircleInstance] = React.useState()
-  const [markerPosition, setMarkerPosition] = React.useState({
+  const [markerInstance, setMarkerInstance] = React.useState<L.Marker>()
+  const [circleInstance, setCircleInstance] = React.useState<L.Circle>()
+  const [markerPosition, setMarkerPosition] = React.useState<L.LatLngLiteral>({
     lat: 52.3731081,
     lng: 4.8932945,
   })
