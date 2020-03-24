@@ -116,7 +116,7 @@ const App = () => {
       <button
         type="button"
         onClick={() => {
-          setCircleRadius(c => c + 10)
+          setCircleRadius((c) => c + 10)
         }}
       >
         Increase circle radius
