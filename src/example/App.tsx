@@ -12,6 +12,7 @@ const App = () => {
     lng: 4.8932945,
   })
   const [circleRadius, setCircleRadius] = React.useState(300)
+  const [map, setMap] = React.useState<L.Map>()
 
   const { lat, lng } = markerPosition
 
@@ -36,6 +37,29 @@ const App = () => {
 
   return (
     <>
+      <div>{`Current markerPosition: lat: ${lat}, lng: ${lng}`}</div>
+      <button type="button" onClick={moveMarker}>
+        Move marker
+      </button>
+
+      <button
+        type="button"
+        onClick={() => {
+          setCircleRadius((c) => c + 10)
+        }}
+      >
+        Increase circle radius
+      </button>
+
+      <button
+        type="button"
+        onClick={() => {
+          if (map) map.panTo(markerPosition)
+        }}
+      >
+        Center marker
+      </button>
+
       <Map
         events={{
           zoomend: () => {
@@ -59,6 +83,7 @@ const App = () => {
             [52.50536, 5.10737],
           ],
         }}
+        setInstance={setMap}
       >
         <Marker
           setInstance={setMarkerInstance}
@@ -108,19 +133,6 @@ const App = () => {
           args={['http://{s}.tile.osm.org/{z}/{x}/{y}.png']}
         />
       </Map>
-      <div>{`Current markerPosition: lat: ${lat}, lng: ${lng}`}</div>
-      <button type="button" onClick={moveMarker}>
-        Move marker
-      </button>
-
-      <button
-        type="button"
-        onClick={() => {
-          setCircleRadius((c) => c + 10)
-        }}
-      >
-        Increase circle radius
-      </button>
     </>
   )
 }
