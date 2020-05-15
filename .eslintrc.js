@@ -6,7 +6,7 @@ module.exports = {
     es6: true,
     'jest/globals': true,
   },
-  plugins: ['jest', 'prettier', '@typescript-eslint'],
+  plugins: ['jest', 'prettier', '@typescript-eslint', 'react-hooks'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -22,6 +22,7 @@ module.exports = {
     'prettier/prettier': ['error'],
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 0,
+    'react-hooks/rules-of-hooks': 'error',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
