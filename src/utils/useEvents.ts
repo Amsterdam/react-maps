@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { LeafletEventHandlerFnMap, Map } from 'leaflet'
 import { AllLeafletInstances } from '../types'
+import useMapInstance from './useMapInstance'
 
 /**
  * @example
@@ -17,6 +18,8 @@ const useEvents = <T extends AllLeafletInstances | Map>(
   instance: T | null,
   events?: LeafletEventHandlerFnMap,
 ) => {
+  const mapInstance = useMapInstance()
+  const deps = instance instanceof Map ? instance : mapInstance
   useEffect(() => {
     const eventsArray = Object.entries(events || {})
     if (eventsArray.length) {
@@ -40,7 +43,7 @@ const useEvents = <T extends AllLeafletInstances | Map>(
         })
       }
     }
-  }, [instance, events])
+  }, [deps])
 }
 
 export default useEvents

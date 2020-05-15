@@ -23,12 +23,6 @@
     "test": "yarn jest",
     "prepublish": "yarn build"
   },
-  "dependencies": {
-    "geojson": "^0.5.0",
-    "leaflet-draw": "^1.0.4",
-    "leaflet.markercluster": "^1.4.1",
-    "leaflet.nontiledlayer": "^1.0.8"
-  },
   "peerDependencies": {
     "leaflet": "^1.6.0",
     "react": "^16.12.0",
@@ -65,6 +59,7 @@
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^6.0.0",
+    "geojson": "^0.5.0",
     "html-webpack-plugin": "^4.0.1",
     "husky": "^4.0.10",
     "jest": "^25.1.0",
