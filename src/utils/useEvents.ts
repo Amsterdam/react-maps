@@ -24,7 +24,7 @@ const useEvents = <T extends AllLeafletInstances | Map>(
   const eventsArray = useMemo(() => Object.entries(events || {}), [])
 
   useEffect(() => {
-    if (mapInstance && eventsArray.length) {
+    if (mapInstance) {
       eventsArray.forEach(([eventName, method]) => {
         if (instance) {
           try {
