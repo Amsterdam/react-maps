@@ -131,6 +131,9 @@ const App = () => {
               '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
           }}
           args={['http://{s}.tile.osm.org/{z}/{x}/{y}.png']}
+          events={{
+            load: () => console.log('loaded'),
+          }}
         />
       </Map>
     </>

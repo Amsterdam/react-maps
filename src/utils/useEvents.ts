@@ -37,7 +37,7 @@ const useEvents = <T extends AllLeafletInstances | Map>(
       })
     }
     return () => {
-    if (mapInstance) {
+      if (mapInstance) {
         eventsArray.forEach(([eventName, method]) => {
           if (instance) {
             instance.off(eventName, method)

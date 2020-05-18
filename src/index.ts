@@ -31,7 +31,6 @@ export { default as useEvents } from './utils/useEvents'
 
 export { createLeafletComponent }
 
-// @ts-ignore
 export const Marker = createLeafletComponent<
   MarkerType,
   [LatLngExpression],
