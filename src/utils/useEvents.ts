@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { LeafletEventHandlerFnMap, Map } from 'leaflet'
 import { AllLeafletInstances } from '../types'
+import useMapInstance from './useMapInstance'
 
 /**
  * @example
@@ -17,9 +18,13 @@ const useEvents = <T extends AllLeafletInstances | Map>(
   instance: T | null,
   events?: LeafletEventHandlerFnMap,
 ) => {
+  const mapInstance = useMapInstance()
+
+  // The eventsArray should only be set once
+  const eventsArray = useMemo(() => Object.entries(events || {}), [])
+
   useEffect(() => {
-    const eventsArray = Object.entries(events || {})
-    if (eventsArray.length) {
+    if (mapInstance) {
       eventsArray.forEach(([eventName, method]) => {
         if (instance) {
           try {
@@ -32,7 +37,7 @@ const useEvents = <T extends AllLeafletInstances | Map>(
       })
     }
     return () => {
-      if (eventsArray.length) {
+      if (mapInstance) {
         eventsArray.forEach(([eventName, method]) => {
           if (instance) {
             instance.off(eventName, method)
@@ -40,7 +45,7 @@ const useEvents = <T extends AllLeafletInstances | Map>(
         })
       }
     }
-  }, [instance, events])
+  }, [mapInstance, eventsArray]) // `instance` cannot be included in the dependency array as React cannot compare classes for updates
 }
 
 export default useEvents

@@ -21,7 +21,6 @@ import {
   GeoJSON as GeoJSONType,
   GeoJSONOptions,
 } from 'leaflet'
-import { memo } from 'react'
 import { GeoJsonObject } from 'geojson'
 import createLeafletComponent from './createLeafletComponent'
 
@@ -32,12 +31,11 @@ export { default as useEvents } from './utils/useEvents'
 
 export { createLeafletComponent }
 
-export const Marker = memo(
-  createLeafletComponent<MarkerType, [LatLngExpression], MarkerOptions>(
-    'marker',
-  ),
-  () => false,
-)
+export const Marker = createLeafletComponent<
+  MarkerType,
+  [LatLngExpression],
+  MarkerOptions
+>('marker')
 
 export const TileLayer = createLeafletComponent<
   TileLayerType,
