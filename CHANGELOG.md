@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## 0.8.1
+
+- Fixed: events are now only set when the mapInstance exists
+
 ## 0.8.0
 
 - Added: setInstance callback on the Map component
