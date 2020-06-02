@@ -1,7 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { LeafletEventHandlerFnMap, Map } from 'leaflet'
 import { AllLeafletInstances } from '../types'
-import useMapInstance from './useMapInstance'
 
 /**
  * @example
@@ -18,34 +17,31 @@ const useEvents = <T extends AllLeafletInstances | Map>(
   instance: T | null,
   events?: LeafletEventHandlerFnMap,
 ) => {
-  const mapInstance = useMapInstance()
-
   // The eventsArray should only be set once
   const eventsArray = useMemo(() => Object.entries(events || {}), [])
 
   useEffect(() => {
-    if (mapInstance) {
+    if (!instance) {
+      return undefined
+    }
+    eventsArray.forEach(([eventName, method]) => {
+      try {
+        // Todo: fix this without using setTimeout.
+        // Apparently we need this, as instance.off seem to still be executed while calling instance.on
+        setTimeout(() => {
+          instance.on(eventName, method)
+        })
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.warn(`${e}. Perhaps ${eventName} the event doesn't exist`)
+      }
+    })
+    return () => {
       eventsArray.forEach(([eventName, method]) => {
-        if (instance) {
-          try {
-            instance.on(eventName, method)
-          } catch (e) {
-            // eslint-disable-next-line no-console
-            console.warn(`${e}. Perhaps ${eventName} the event doesn't exist`)
-          }
-        }
+        instance.off(eventName, method)
       })
     }
-    return () => {
-      if (mapInstance) {
-        eventsArray.forEach(([eventName, method]) => {
-          if (instance) {
-            instance.off(eventName, method)
-          }
-        })
-      }
-    }
-  }, [mapInstance, eventsArray]) // `instance` cannot be included in the dependency array as React cannot compare classes for updates
+  }, [instance, eventsArray]) // `instance` cannot be included in the dependency array as React cannot compare classes for updates
 }
 
 export default useEvents
