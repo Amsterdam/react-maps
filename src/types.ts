@@ -1,5 +1,6 @@
 import {
   Circle,
+  CircleMarker,
   GeoJSON,
   ImageOverlay,
   LayerGroup,
@@ -15,6 +16,7 @@ export type AllLeafletInstances =
   | Marker
   | ImageOverlay
   | Circle
+  | CircleMarker
   | Rectangle
   | TileLayer
   | Tooltip
