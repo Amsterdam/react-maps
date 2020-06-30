@@ -6,6 +6,7 @@ import {
   Rectangle as RectangleType,
   LayerGroup as LayerGroupType,
   Circle as CircleType,
+  CircleMarker as CircleMarkerType,
   TileLayerOptions,
   LatLngBoundsExpression,
   PolylineOptions,
@@ -73,6 +74,12 @@ export const Rectangle = createLeafletComponent<
 
 export const Circle = createLeafletComponent<
   CircleType,
+  [LatLngExpression],
+  CircleMarkerOptions
+>('circle')
+
+export const CircleMarker = createLeafletComponent<
+  CircleMarkerType,
   [LatLngExpression],
   CircleMarkerOptions
 >('circle')
