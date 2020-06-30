@@ -76,7 +76,7 @@ export const Circle = createLeafletComponent<
   CircleType,
   [LatLngExpression],
   CircleMarkerOptions
->('circle')
+>('circleMarker')
 
 export const CircleMarker = createLeafletComponent<
   CircleMarkerType,
