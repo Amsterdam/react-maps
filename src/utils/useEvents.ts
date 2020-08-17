@@ -18,7 +18,12 @@ const useEvents = <T extends AllLeafletInstances | Map>(
   instance: T | null,
   events?: LeafletEventHandlerFnMap,
 ) => {
-  const mapInstance = useMapInstance()
+  let mapInstance = useMapInstance()
+
+  if (instance instanceof Map) {
+    // @ts-ignore
+    mapInstance = instance
+  }
 
   // The eventsArray should only be set once
   const eventsArray = useMemo(() => Object.entries(events || {}), [])
