@@ -1,6 +1,6 @@
-import { LeafletEventHandlerFnMap, Map } from 'leaflet'
-import useMapInstance from './useMapInstance'
+import { LeafletEventHandlerFnMap } from 'leaflet'
 import useEvents from './useEvents'
+import useMapInstance from './useMapInstance'
 
 /**
  * Uses useEvents hook with mapInstance
@@ -8,7 +8,7 @@ import useEvents from './useEvents'
  */
 const useMapEvents = (events?: LeafletEventHandlerFnMap) => {
   const mapInstance = useMapInstance()
-  useEvents<Map>(mapInstance, events)
+  useEvents(mapInstance, events)
 }
 
 export default useMapEvents
