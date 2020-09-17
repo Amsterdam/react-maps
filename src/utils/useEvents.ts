@@ -1,5 +1,5 @@
-import { useEffect, useMemo } from 'react'
 import { LeafletEventHandlerFnMap, Map } from 'leaflet'
+import { useEffect, useMemo } from 'react'
 import { AllLeafletInstances } from '../types'
 import useMapInstance from './useMapInstance'
 
@@ -15,13 +15,12 @@ import useMapInstance from './useMapInstance'
  * @param events Leaflet event handlers, check https://leafletjs.com/reference-1.6.0.html#map-event
  */
 const useEvents = <T extends AllLeafletInstances | Map>(
-  instance: T | null,
+  instance: T,
   events?: LeafletEventHandlerFnMap,
 ) => {
   let mapInstance = useMapInstance()
 
   if (instance instanceof Map) {
-    // @ts-ignore
     mapInstance = instance
   }
 
@@ -29,26 +28,23 @@ const useEvents = <T extends AllLeafletInstances | Map>(
   const eventsArray = useMemo(() => Object.entries(events || {}), [])
 
   useEffect(() => {
-    if (mapInstance) {
+    eventsArray.forEach(([eventName, method]) => {
+      if (instance) {
+        try {
+          instance.on(eventName, method)
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.warn(`${e}. Perhaps ${eventName} the event doesn't exist`)
+        }
+      }
+    })
+
+    return () => {
       eventsArray.forEach(([eventName, method]) => {
         if (instance) {
-          try {
-            instance.on(eventName, method)
-          } catch (e) {
-            // eslint-disable-next-line no-console
-            console.warn(`${e}. Perhaps ${eventName} the event doesn't exist`)
-          }
+          instance.off(eventName, method)
         }
       })
-    }
-    return () => {
-      if (mapInstance) {
-        eventsArray.forEach(([eventName, method]) => {
-          if (instance) {
-            instance.off(eventName, method)
-          }
-        })
-      }
     }
   }, [mapInstance, eventsArray]) // `instance` cannot be included in the dependency array as React cannot compare classes for updates
 }

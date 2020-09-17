@@ -1,7 +1,7 @@
 import { Map } from 'leaflet'
 import { useEffect, useState } from 'react'
-import useMapInstance from './useMapInstance'
 import { AllLeafletInstances } from '../types'
+import useMapInstance from './useMapInstance'
 
 export default <T extends AllLeafletInstances>(
   instance: T,
@@ -16,11 +16,7 @@ export default <T extends AllLeafletInstances>(
   // Cleanup
   useEffect(
     () => () => {
-      if (
-        mapInstance &&
-        componentInstance &&
-        mapInstance.hasLayer(componentInstance)
-      ) {
+      if (componentInstance && mapInstance.hasLayer(componentInstance)) {
         componentInstance.removeFrom(mapInstance)
       }
     },
@@ -29,7 +25,7 @@ export default <T extends AllLeafletInstances>(
 
   // Add to map instance
   useEffect(() => {
-    if (mapInstance && !componentInstance) {
+    if (!componentInstance) {
       setComponentInstance(
         customAdd
           ? customAdd(instance, mapInstance)
