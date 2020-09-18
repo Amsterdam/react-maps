@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## UNRELEASED
+
+- Fixed: `Map` component no longer throws an exception.
+
 ## 0.9.0
 
 - Changed: **BREAKING** `useMapInstance` will no longer return null values and throw an exception if no provider for `MapContext` was found.
