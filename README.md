@@ -20,7 +20,7 @@ Checkout `./src/example/App.tsx` for how to implement the components.
 ### Link to existing project
 
 First build the package: `yarn build`
-Then simply execute `yarn link` in this repo, then in your repo where you want implement this package `yarn link "@datapunt/react-maps"`
+Then simply execute `yarn link` in this repo, then in your repo where you want implement this package `yarn link "@amsterdam/react-maps"`
 
 Then we have just one issue: we now have two react dependencies: one in your project, and the one in this repo. This will unfortunately resolve in an error. There are two ways of fixing this:
 

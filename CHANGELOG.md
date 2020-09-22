@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## Unreleased
+
+- Changed: Moved packages to @amsterdam organization on NPM.
+
 ## 0.9.1
 
 - Fixed: `Map` component no longer throws an exception.

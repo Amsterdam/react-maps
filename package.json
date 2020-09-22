@@ -1,9 +1,9 @@
 {
-  "name": "@datapunt/react-maps",
+  "name": "@amsterdam/react-maps",
   "version": "0.9.1",
   "description": "ReactJS wrapped around Leaflet",
   "license": "MPL-2.0",
-  "author": "Datapunt Amsterdam",
+  "author": "Gemeente Amsterdam",
   "homepage": "",
   "directories": {
     "lib": "lib",
