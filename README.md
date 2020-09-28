@@ -12,15 +12,15 @@ As compared to the existing [react-leaflet](https://react-leaflet.js.org/), we w
 
 ## Usage
 
-Install dependencies: `yarn`
-Start the example app: `yarn start` and check out `http://localhost:8080`
+Install dependencies: `npm install`
+Start the example app: `npm run start` and check out `http://localhost:8080`
 
 Checkout `./src/example/App.tsx` for how to implement the components.
 
 ### Link to existing project
 
-First build the package: `yarn build`
-Then simply execute `yarn link` in this repo, then in your repo where you want implement this package `yarn link "@amsterdam/react-maps"`
+First build the package: `npm run build`
+Then simply execute `npm link` in this repo, then in your repo where you want implement this package `npm link @amsterdam/react-maps`
 
 Then we have just one issue: we now have two react dependencies: one in your project, and the one in this repo. This will unfortunately resolve in an error. There are two ways of fixing this:
 
