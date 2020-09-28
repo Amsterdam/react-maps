@@ -20,8 +20,8 @@
     "build": "rm -rf es && tsc && tsc -p ./tsconfig.es5.json",
     "start": "webpack-dev-server",
     "lint": "eslint ./ --ext .ts,.tsx",
-    "test": "yarn jest",
-    "prepublish": "yarn build"
+    "test": "jest",
+    "prepublish": "npm run build"
   },
   "peerDependencies": {
     "leaflet": "^1.6.0",
