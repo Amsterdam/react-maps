@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## Unreleased
+
+- Changed: `MapProps` for the `Map` component are now exported publicly.
+
 ## 0.10.0
 
 - Changed: Moved packages to @amsterdam organization on NPM.
