@@ -9,9 +9,10 @@ export default <T extends AllLeafletInstances>(
   customAdd?: (instance: T, mapInstance: Map) => T,
 ) => {
   const mapInstance = useMapInstance()
-  const [componentInstance, setComponentInstance] = useState<
-    AllLeafletInstances
-  >()
+  const [
+    componentInstance,
+    setComponentInstance,
+  ] = useState<AllLeafletInstances>()
 
   // Cleanup
   useEffect(
