@@ -5,14 +5,11 @@ import useMapInstance from './useMapInstance'
 
 export default <T extends AllLeafletInstances>(
   instance: T,
-  setInstance: Function,
+  setInstance: (instance: T) => void,
   customAdd?: (instance: T, mapInstance: Map) => T,
-) => {
+): void => {
   const mapInstance = useMapInstance()
-  const [
-    componentInstance,
-    setComponentInstance,
-  ] = useState<AllLeafletInstances>()
+  const [componentInstance, setComponentInstance] = useState<T>()
 
   // Cleanup
   useEffect(
@@ -30,7 +27,7 @@ export default <T extends AllLeafletInstances>(
       setComponentInstance(
         customAdd
           ? customAdd(instance, mapInstance)
-          : instance.addTo(mapInstance),
+          : (instance.addTo(mapInstance) as T),
       )
     }
   }, [instance, mapInstance, setInstance])

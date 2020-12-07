@@ -17,7 +17,7 @@ import useMapInstance from './useMapInstance'
 const useEvents = <T extends AllLeafletInstances | Map>(
   instance: T,
   events?: LeafletEventHandlerFnMap,
-) => {
+): void => {
   let mapInstance = useMapInstance()
 
   if (instance instanceof Map) {
@@ -32,9 +32,11 @@ const useEvents = <T extends AllLeafletInstances | Map>(
       if (instance) {
         try {
           instance.on(eventName, method)
-        } catch (e) {
+        } catch {
           // eslint-disable-next-line no-console
-          console.warn(`${e}. Perhaps ${eventName} the event doesn't exist`)
+          console.warn(
+            `Unable to use event, perhaps the '${eventName}' event doesn't exist`,
+          )
         }
       }
     })

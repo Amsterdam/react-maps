@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import React, { FunctionComponent, useEffect } from 'react'
+import { Circle, Marker, Popup, Rectangle, TileLayer } from '..'
 import Map from '../Map'
-import { TileLayer, Marker, Rectangle, Circle, Popup } from '..'
 
-const App = () => {
+const App: FunctionComponent = () => {
   const [markerInstance, setMarkerInstance] = React.useState<L.Marker>()
   const [circleInstance, setCircleInstance] = React.useState<L.Circle>()
   const [markerPosition, setMarkerPosition] = React.useState<L.LatLngLiteral>({
@@ -89,11 +89,14 @@ const App = () => {
           setInstance={setMarkerInstance}
           options={{
             icon: L.icon({
-              iconUrl: require('leaflet/dist/images/marker-icon.png').default,
+              /* eslint-disable global-require, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-var-requires */
+              iconUrl: require('leaflet/dist/images/marker-icon.png')
+                .default as string,
               iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png')
-                .default,
+                .default as string,
               shadowUrl: require('leaflet/dist/images/marker-shadow.png')
-                .default,
+                .default as string,
+              /* eslint-enable global-require, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-var-requires */
               iconSize: [25, 41],
               iconAnchor: [12, 41],
               popupAnchor: [1, -34],
@@ -132,6 +135,7 @@ const App = () => {
           }}
           args={['http://{s}.tile.osm.org/{z}/{x}/{y}.png']}
           events={{
+            // eslint-disable-next-line no-console
             load: () => console.log('loaded'),
           }}
         />
