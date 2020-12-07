@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "noLib": false,
-    "module": "es6",
-    "target": "es6",
+    "module": "commonjs",
+    "target": "es5",
     "rootDir": "./src",
-    "outDir": "./es",
+    "outDir": "./lib",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["node", "react", "react-dom", "jest"],
     "sourceMap": true,
