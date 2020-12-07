@@ -17,7 +17,10 @@
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "scripts": {
-    "build": "rm -rf es && tsc && tsc -p ./tsconfig.es5.json",
+    "clean": "rm -rf es lib",
+    "build:ts": "tsc",
+    "build:ts:es": "tsc -b tsconfig.es.json",
+    "build": "npm run clean && npm run build:ts && npm run build:ts:es",
     "start": "webpack-dev-server",
     "lint": "eslint ./ --ext .ts,.tsx",
     "test": "jest",
