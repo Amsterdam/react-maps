@@ -78,6 +78,9 @@
     "webpack-cli": "^4.0.0",
     "webpack-dev-server": "^3.10.1"
   },
+  "engines": {
+    "node": "^14"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
