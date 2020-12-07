@@ -7,6 +7,7 @@ import * as useMapInstance from './useMapInstance'
 jest.mock('leaflet')
 
 describe('useAddToMapInstance', () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const mockedMapInstance = { hasLayer: jest.fn().mockReturnValue(true) } as any
   const removeFromMock = jest.fn()
   const addToMock = jest.fn<any, [Map]>(() => ({ removeFrom: removeFromMock }))

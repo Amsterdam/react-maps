@@ -1,8 +1,16 @@
-import React, { useCallback } from 'react'
 import L, { LeafletEventHandlerFn } from 'leaflet'
+import { FunctionComponent, useCallback } from 'react'
+import { AllLeafletInstances } from './types'
 import useAddToMapInstance from './utils/useAddToMapInstance'
 import useEvents from './utils/useEvents'
-import { AllLeafletInstances } from './types'
+
+export interface LeafletComponentProps<T extends AllLeafletInstances, U, V> {
+  args?: U
+  options?: V
+  setInstance?: (instance: T) => void
+  events?: { [key: string]: LeafletEventHandlerFn }
+  customAdd?: (instance: T, mapInstance: L.Map) => T
+}
 
 /**
  * Returns a React component wrapped around a Leaflet component / instance and adds it to the MapInstance
@@ -10,17 +18,11 @@ import { AllLeafletInstances } from './types'
  */
 function createLeafletComponent<
   T extends AllLeafletInstances,
-  U extends Array<any>,
+  U extends Array<unknown>,
   V
->(leafletComponentName: string) {
-  type Props = {
-    args?: U
-    options?: V
-    setInstance?: (instance: T) => void
-    events?: { [key: string]: LeafletEventHandlerFn }
-    customAdd?: (instance: T, mapInstance: L.Map) => T
-  }
-
+>(
+  leafletComponentName: string,
+): FunctionComponent<LeafletComponentProps<T, U, V>> {
   /**
    * @param events {Object} An object to bind leaflet events to own methods
    * @param args {Array} The first arguments to be given to the leaflet component
@@ -30,23 +32,26 @@ function createLeafletComponent<
    * you can use this callback function
    * @constructor
    */
-  const LeafletComponent: React.FC<Props> = ({
+  const LeafletComponent: FunctionComponent<LeafletComponentProps<T, U, V>> = ({
     events,
     args = [],
     options = [],
     setInstance,
     customAdd,
   }) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
     const instance: T = L[leafletComponentName](...[...args, options])
+    // useCallback to only set the instance once
+    const setInstanceCallback = useCallback((i: T) => {
+      if (setInstance) {
+        setInstance(i)
+      }
+    }, [])
 
     useAddToMapInstance<T>(
       instance,
       // useCallback to only set the instance once
-      useCallback((i: T) => {
-        if (setInstance) {
-          setInstance(i)
-        }
-      }, []),
+      setInstanceCallback,
       customAdd,
     )
 
@@ -55,7 +60,7 @@ function createLeafletComponent<
     return null
   }
 
-  return LeafletComponent as React.FC<Props>
+  return LeafletComponent
 }
 
 export default createLeafletComponent

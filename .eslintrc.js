@@ -1,58 +1,21 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  env: {
-    browser: true,
-    commonjs: true,
-    es6: true,
-    'jest/globals': true,
-  },
-  plugins: ['jest', 'prettier', '@typescript-eslint', 'react-hooks'],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
+  extends: [
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/react',
+    'prettier/@typescript-eslint',
+  ],
   parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 2018,
+    project: './tsconfig.eslint.json',
   },
-  extends: ['airbnb', 'prettier'],
   rules: {
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-    'global-require': 0,
-    'prettier/prettier': ['error'],
-    'react/prop-types': 0,
-    'react/jsx-props-no-spreading': 0,
-    'react-hooks/rules-of-hooks': 'error',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'after-used',
-        ignoreRestSiblings: false,
-      },
-    ],
-    'react/jsx-filename-extension': [
-      1,
-      {
-        extensions: ['.ts', '.tsx'],
-      },
-    ],
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.ts', '.jsx', '.tsx'],
-      },
-    },
+    'import/no-extraneous-dependencies': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/prop-types': 'off',
   },
 }

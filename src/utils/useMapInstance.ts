@@ -1,7 +1,8 @@
+import { Map } from 'leaflet'
 import { useContext } from 'react'
 import MapContext from '../MapContext'
 
-const useMapInstance = () => {
+const useMapInstance = (): Map => {
   const { mapInstance } = useContext(MapContext)
 
   if (!mapInstance) {
