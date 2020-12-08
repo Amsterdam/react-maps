@@ -1,4 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
+import { Map } from 'leaflet'
+import { AllLeafletInstances } from '../types'
 import useAddToMapInstance from './useAddToMapInstance'
 import * as useMapInstance from './useMapInstance'
 
@@ -7,12 +9,14 @@ jest.mock('leaflet')
 describe('useAddToMapInstance', () => {
   const mockedMapInstance = { hasLayer: jest.fn().mockReturnValue(true) } as any
   const removeFromMock = jest.fn()
-  const addToMock = jest.fn(() => ({ removeFrom: removeFromMock }))
+  const addToMock = jest.fn<any, [Map]>(() => ({ removeFrom: removeFromMock }))
   const setInstanceMock = jest.fn()
-  const customAddMock = jest.fn(() => ({ removeFrom: removeFromMock }))
-  const instanceMock = {
+  const customAddMock = jest.fn<any, [AllLeafletInstances, Map]>(() => ({
+    removeFrom: removeFromMock,
+  }))
+  const instanceMock = ({
     addTo: addToMock,
-  }
+  } as unknown) as AllLeafletInstances
 
   beforeEach(() => {
     jest.spyOn(useMapInstance, 'default').mockReturnValue(mockedMapInstance)
