@@ -1,7 +1,7 @@
-import React from 'react'
+import { createContext } from 'react'
 import { Map } from 'leaflet'
 
-const MapContext = React.createContext<{ mapInstance: Map | null }>({
+const MapContext = createContext<{ mapInstance: Map | null }>({
   mapInstance: null,
 })
 

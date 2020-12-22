@@ -1,13 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { Map } from 'leaflet'
-import React from 'react'
+import { FunctionComponent } from 'react'
 import MapContext from '../MapContext'
 import useMapInstance from './useMapInstance'
 
 describe('useMapInstance', () => {
   it('should use the map instance', () => {
     const mockInstance = ({ foo: 'bar' } as unknown) as Map
-    const wrapper: React.FC = ({ children }) => (
+    const wrapper: FunctionComponent = ({ children }) => (
       <MapContext.Provider
         value={{
           mapInstance: mockInstance,

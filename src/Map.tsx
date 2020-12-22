@@ -1,5 +1,11 @@
 import L, { LeafletEventHandlerFnMap, MapOptions } from 'leaflet'
-import React, { HTMLProps, useEffect, useRef, useState } from 'react'
+import {
+  FunctionComponent,
+  HTMLProps,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import MapContext from './MapContext'
 import useEvents from './utils/useEvents'
 import useMapInstance from './utils/useMapInstance'
@@ -8,7 +14,10 @@ interface MapContentProps {
   events?: LeafletEventHandlerFnMap
 }
 
-const MapContent: React.FC<MapContentProps> = ({ children, events }) => {
+const MapContent: FunctionComponent<MapContentProps> = ({
+  children,
+  events,
+}) => {
   const mapInstance = useMapInstance()
 
   useEvents(mapInstance, events)
@@ -22,7 +31,7 @@ export interface MapProps {
   setInstance?: (instance: L.Map) => void
 }
 
-const Map: React.FC<HTMLProps<HTMLDivElement> & MapProps> = ({
+const Map: FunctionComponent<HTMLProps<HTMLDivElement> & MapProps> = ({
   children,
   events,
   options,

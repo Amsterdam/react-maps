@@ -1,18 +1,18 @@
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import React, { FunctionComponent, useEffect } from 'react'
+import { FunctionComponent, useEffect, useState } from 'react'
 import { Circle, Marker, Popup, Rectangle, TileLayer } from '..'
 import Map from '../Map'
 
 const App: FunctionComponent = () => {
-  const [markerInstance, setMarkerInstance] = React.useState<L.Marker>()
-  const [circleInstance, setCircleInstance] = React.useState<L.Circle>()
-  const [markerPosition, setMarkerPosition] = React.useState<L.LatLngLiteral>({
+  const [markerInstance, setMarkerInstance] = useState<L.Marker>()
+  const [circleInstance, setCircleInstance] = useState<L.Circle>()
+  const [markerPosition, setMarkerPosition] = useState<L.LatLngLiteral>({
     lat: 52.3731081,
     lng: 4.8932945,
   })
-  const [circleRadius, setCircleRadius] = React.useState(300)
-  const [map, setMap] = React.useState<L.Map>()
+  const [circleRadius, setCircleRadius] = useState(300)
+  const [map, setMap] = useState<L.Map>()
 
   const { lat, lng } = markerPosition
 
