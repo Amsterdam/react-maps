@@ -15,7 +15,7 @@ Prefix the change with one of these keywords:
 - _Security_: in case of vulnerabilities.
 
 
-## [Unreleased]
+## [0.12.0]
 - Changed: **BREAKING** Dropped support for React version 16
 
 ## 0.11.0
