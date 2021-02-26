@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+
+## [Unreleased]
+- Changed: **BREAKING** Dropped support for React version 16
+
 ## 0.11.0
 
 - Changed: `MapProps` for the `Map` component are now exported publicly.
