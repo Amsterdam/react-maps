@@ -1,6 +1,6 @@
 {
   "name": "@amsterdam/react-maps",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "ReactJS wrapped around Leaflet",
   "license": "MPL-2.0",
   "author": "Gemeente Amsterdam",
