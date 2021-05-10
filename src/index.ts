@@ -32,60 +32,50 @@ export { default as useEvents } from './utils/useEvents'
 
 export { createLeafletComponent }
 
-export const Marker = createLeafletComponent<
-  MarkerType,
-  [LatLngExpression],
-  MarkerOptions
->('marker')
+export const Marker =
+  createLeafletComponent<MarkerType, [LatLngExpression], MarkerOptions>(
+    'marker',
+  )
 
-export const TileLayer = createLeafletComponent<
-  TileLayerType,
-  [string],
-  TileLayerOptions
->('tileLayer')
+export const TileLayer =
+  createLeafletComponent<TileLayerType, [string], TileLayerOptions>('tileLayer')
 
-export const LayerGroup = createLeafletComponent<
-  LayerGroupType,
-  [Layer[]],
-  LayerOptions
->('layerGroup')
+export const LayerGroup =
+  createLeafletComponent<LayerGroupType, [Layer[]], LayerOptions>('layerGroup')
 
-export const ImageOverlay = createLeafletComponent<
-  ImageOverlayType,
-  [string, LatLngBoundsExpression],
-  ImageOverlayOptions
->('imageOverlay')
+export const ImageOverlay =
+  createLeafletComponent<
+    ImageOverlayType,
+    [string, LatLngBoundsExpression],
+    ImageOverlayOptions
+  >('imageOverlay')
 
-export const ToolTip = createLeafletComponent<
-  TooltipType,
-  [TooltipOptions],
-  Layer
->('tooltip')
+export const ToolTip =
+  createLeafletComponent<TooltipType, [TooltipOptions], Layer>('tooltip')
 
-export const Popup = createLeafletComponent<PopupType, [], PopupOptions>(
-  'popup',
-)
+export const Popup =
+  createLeafletComponent<PopupType, [], PopupOptions>('popup')
 
-export const Rectangle = createLeafletComponent<
-  RectangleType,
-  [LatLngBoundsExpression],
-  PolylineOptions
->('rectangle')
+export const Rectangle =
+  createLeafletComponent<
+    RectangleType,
+    [LatLngBoundsExpression],
+    PolylineOptions
+  >('rectangle')
 
-export const Circle = createLeafletComponent<
-  CircleType,
-  [LatLngExpression],
-  CircleMarkerOptions
->('circleMarker')
+export const Circle =
+  createLeafletComponent<CircleType, [LatLngExpression], CircleMarkerOptions>(
+    'circleMarker',
+  )
 
-export const CircleMarker = createLeafletComponent<
-  CircleMarkerType,
-  [LatLngExpression],
-  CircleMarkerOptions
->('circle')
+export const CircleMarker =
+  createLeafletComponent<
+    CircleMarkerType,
+    [LatLngExpression],
+    CircleMarkerOptions
+  >('circle')
 
-export const GeoJSON = createLeafletComponent<
-  GeoJSONType,
-  [GeoJsonObject],
-  GeoJSONOptions
->('geoJSON')
+export const GeoJSON =
+  createLeafletComponent<GeoJSONType, [GeoJsonObject], GeoJSONOptions>(
+    'geoJSON',
+  )
