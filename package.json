@@ -62,7 +62,7 @@
     "jest-cli": "^26.0.1",
     "leaflet": "^1.6.0",
     "lerna": "^4.0.0",
-    "lint-staged": "^10.0.0",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
