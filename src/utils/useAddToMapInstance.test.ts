@@ -15,9 +15,9 @@ describe('useAddToMapInstance', () => {
   const customAddMock = jest.fn<any, [AllLeafletInstances, Map]>(() => ({
     removeFrom: removeFromMock,
   }))
-  const instanceMock = ({
+  const instanceMock = {
     addTo: addToMock,
-  } as unknown) as AllLeafletInstances
+  } as unknown as AllLeafletInstances
 
   beforeEach(() => {
     jest.spyOn(useMapInstance, 'default').mockReturnValue(mockedMapInstance)

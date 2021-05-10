@@ -19,7 +19,7 @@ export interface LeafletComponentProps<T extends AllLeafletInstances, U, V> {
 function createLeafletComponent<
   T extends AllLeafletInstances,
   U extends Array<unknown>,
-  V
+  V,
 >(
   leafletComponentName: string,
 ): FunctionComponent<LeafletComponentProps<T, U, V>> {
