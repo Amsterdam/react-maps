@@ -5,14 +5,15 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
+    'plugin:eslint-plugin-import/recommended'
   ],
-  
   parserOptions: {
     project: './tsconfig.eslint.json',
   },
   rules: {
     'import/no-extraneous-dependencies': 'off',
     'react-hooks/exhaustive-deps': 'off',
+    'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
