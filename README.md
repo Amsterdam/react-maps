@@ -12,6 +12,11 @@ As compared to the existing [react-leaflet](https://react-leaflet.js.org/), we w
 
 ## Usage
 
+`npm install --save @amsterdam/react-maps` - exports useMapInstance, useMapEvents, useEvents, ToolTip, Popup, etc.
+
+
+## Developing
+
 Install dependencies: `npm install`
 Start the example app: `npm run start` and check out `http://localhost:8080`
 
