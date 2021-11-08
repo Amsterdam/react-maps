@@ -45,7 +45,7 @@
     "@typescript-eslint/parser": "^4.11.0",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^6.2.0",
-    "eslint": "^7.16.0",
+    "eslint": "^8.2.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-config-prettier": "^8.0.0",
