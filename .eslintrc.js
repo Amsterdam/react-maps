@@ -1,22 +1,13 @@
 module.exports = {
   extends: [
-    'airbnb-typescript',
-    'airbnb/hooks',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'eslint:recommended',
+    'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
-    'plugin:eslint-plugin-import/recommended'
+    'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
   ],
   parserOptions: {
     project: './tsconfig.eslint.json',
   },
-  rules: {
-    'import/no-extraneous-dependencies': 'off',
-    'react-hooks/exhaustive-deps': 'off',
-    'react/jsx-filename-extension': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/prop-types': 'off',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
-  },
+  rules: {},
 }
