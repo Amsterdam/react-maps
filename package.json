@@ -23,7 +23,8 @@
     "build": "npm run clean && npm run build:ts && npm run build:ts:es",
     "start": "webpack serve",
     "lint": "eslint ./ --ext .ts,.tsx",
-    "test": "jest"
+    "test": "jest",
+    "publish": "lerna publish"
   },
   "peerDependencies": {
     "leaflet": "^1.6.0",
