@@ -24,6 +24,7 @@
     "start": "webpack serve",
     "lint": "eslint ./ --ext .ts,.tsx",
     "test": "jest",
+    "test:watch": "jest --watchAll",
     "publish": "lerna publish"
   },
   "peerDependencies": {
@@ -35,6 +36,8 @@
     "access": "public"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
     "@testing-library/react-hooks": "^8.0.0",
     "@types/geojson": "^7946.0.7",
     "@types/jest": "^27.0.0",
