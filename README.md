@@ -1,5 +1,5 @@
 # React Maps
-![](https://github.com/amsterdam/amsterdam-react-maps/actions/workflows/ci.yml/badge.svg)
+![](https://github.com/amsterdam/react-maps/actions/workflows/ci.yml/badge.svg)
 
 
 Loosely implemented package using react with leaflet.
