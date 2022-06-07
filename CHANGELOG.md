@@ -14,8 +14,13 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [0.12.1]
+
+- Addded: **BREAKING** Added support for React version 17 and 18
+- Undated: new version of leaflet
 
 ## [0.12.0]
+
 - Changed: **BREAKING** Dropped support for React version 16
 
 ## 0.11.0
