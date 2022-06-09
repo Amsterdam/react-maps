@@ -1,5 +1,5 @@
 import L, { LeafletEventHandlerFnMap, MapOptions } from 'leaflet'
-import {
+import React, {
   FunctionComponent,
   HTMLProps,
   useEffect,

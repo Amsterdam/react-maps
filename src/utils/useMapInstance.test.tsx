@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { Map } from 'leaflet'
-import { FunctionComponent } from 'react'
+import React, { FunctionComponent } from 'react'
 import MapContext from '../MapContext'
 import useMapInstance from './useMapInstance'
 

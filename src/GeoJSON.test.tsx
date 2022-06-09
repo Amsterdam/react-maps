@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import React from 'react'
 import { GeoJSONOptions } from 'leaflet'
 import { GeoJSON as GeoJSONType } from 'geojson'
 import Map from './Map'
