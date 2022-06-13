@@ -1,4 +1,3 @@
-const { CheckerPlugin } = require('awesome-typescript-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
@@ -23,10 +22,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          configFileName: './tsconfig.json',
-        },
+        loader: 'ts-loader',
       },
       {
         test: /\.css$/i,
@@ -48,7 +44,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new CheckerPlugin(),
     new HtmlWebpackPlugin({
       template: './src/example/index.html',
     }),
