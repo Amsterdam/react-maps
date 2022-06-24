@@ -14,6 +14,10 @@ Prefix the change with one of these keywords:
 - _Fixed_: for any bug fixes.
 - _Security_: in case of vulnerabilities.
 
+## [1.0.0]
+
+- Removed: GeoJSON test (moved to ARM)
+
 ## [0.12.2]
 
 - Undated: now using ts-loader 
