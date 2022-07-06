@@ -3,7 +3,7 @@
 
 Please do not use this package anymore.
 
-All dependencies can be found at: @amsterdam/arm-core
+All dependencies can also be found at: '@amsterdam/arm-core'
 
 Loosely implemented package using react with leaflet.
 As compared to the existing [react-leaflet](https://react-leaflet.js.org/), we want to set up things different in this repo:
