@@ -1,6 +1,9 @@
 # React Maps
 ![](https://github.com/amsterdam/react-maps/actions/workflows/ci.yml/badge.svg)
 
+Please do not use this package anymore.
+
+All dependencies can be found at: @amsterdam/arm-core
 
 Loosely implemented package using react with leaflet.
 As compared to the existing [react-leaflet](https://react-leaflet.js.org/), we want to set up things different in this repo:
