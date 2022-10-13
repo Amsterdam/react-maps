@@ -1,10 +1,11 @@
 import L, { LeafletEventHandlerFn } from 'leaflet'
-import { FunctionComponent, useCallback } from 'react'
+import { FunctionComponent, ReactChildren, useCallback } from 'react'
 import { AllLeafletInstances } from './types'
 import useAddToMapInstance from './utils/useAddToMapInstance'
 import useEvents from './utils/useEvents'
 
 export interface LeafletComponentProps<T extends AllLeafletInstances, U, V> {
+  children?: ReactChildren
   args?: U
   options?: V
   setInstance?: (instance: T) => void
