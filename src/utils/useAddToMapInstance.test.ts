@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { Map } from 'leaflet'
 import { AllLeafletInstances } from '../types'
 import useAddToMapInstance from './useAddToMapInstance'
