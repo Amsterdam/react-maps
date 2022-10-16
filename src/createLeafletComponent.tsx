@@ -5,6 +5,7 @@ import useAddToMapInstance from './utils/useAddToMapInstance'
 import useEvents from './utils/useEvents'
 
 export interface LeafletComponentProps<T extends AllLeafletInstances, U, V> {
+  children?: React.ReactNode
   args?: U
   options?: V
   setInstance?: (instance: T) => void

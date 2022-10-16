@@ -11,6 +11,7 @@ import useEvents from './utils/useEvents'
 import useMapInstance from './utils/useMapInstance'
 
 interface MapContentProps {
+  children?: React.ReactNode
   events?: LeafletEventHandlerFnMap
 }
 
