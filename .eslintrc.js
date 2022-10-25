@@ -9,5 +9,7 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.eslint.json',
   },
-  rules: {},
+  rules: {
+    '@typescript-eslint/ban-ts-comment', 0   
+  },
 }
