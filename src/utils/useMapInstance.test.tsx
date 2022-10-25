@@ -11,7 +11,7 @@ describe('useMapInstance', () => {
     const wrapper: FunctionComponent = ({ children }) => (
       <MapContext.Provider
         value={{
-          mapInstance: mockInstance,-ignore
+          mapInstance: mockInstance,
         }}
       >
         {children}
