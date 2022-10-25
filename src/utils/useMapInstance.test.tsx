@@ -7,10 +7,11 @@ import useMapInstance from './useMapInstance'
 describe('useMapInstance', () => {
   it('should use the map instance', () => {
     const mockInstance = { foo: 'bar' } as unknown as Map
+    //@ts-ignore
     const wrapper: FunctionComponent = ({ children }) => (
       <MapContext.Provider
         value={{
-          mapInstance: mockInstance,
+          mapInstance: mockInstance,-ignore
         }}
       >
         {children}
