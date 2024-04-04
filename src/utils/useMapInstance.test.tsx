@@ -22,7 +22,7 @@ describe('useMapInstance', () => {
     expect(result.current).toEqual(mockInstance)
   })
 
-  it.skip("should throw an exception if the provider doesn't exist", () => {
+  it("should throw an exception if the provider doesn't exist", () => {
     const { result } = renderHook(() => useMapInstance())
 
     expect(result).not.toBeDefined()

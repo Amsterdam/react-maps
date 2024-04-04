@@ -17,11 +17,7 @@ export interface LeafletComponentProps<T extends AllLeafletInstances, U, V> {
  * Returns a React component wrapped around a Leaflet component / instance and adds it to the MapInstance
  * @param leafletComponentName The name of the Leaflet component (eg. to use L.imageOverlay, the leafletComponentName should be 'imageOverlay')
  */
-function createLeafletComponent<
-  T extends AllLeafletInstances,
-  U extends Array<unknown>,
-  V,
->(
+function createLeafletComponent<T extends AllLeafletInstances, U extends Array<unknown>, V>(
   leafletComponentName: string,
 ): FunctionComponent<LeafletComponentProps<T, U, V>> {
   /**

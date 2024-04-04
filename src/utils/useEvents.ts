@@ -34,9 +34,7 @@ const useEvents = <T extends AllLeafletInstances | Map>(
           instance.on(eventName, method)
         } catch {
           // eslint-disable-next-line no-console
-          console.warn(
-            `Unable to use event, perhaps the '${eventName}' event doesn't exist`,
-          )
+          console.warn(`Unable to use event, perhaps the '${eventName}' event doesn't exist`)
         }
       }
     })

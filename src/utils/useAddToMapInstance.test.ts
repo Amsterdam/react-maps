@@ -7,11 +7,13 @@ import * as useMapInstance from './useMapInstance'
 jest.mock('leaflet')
 
 describe('useAddToMapInstance', () => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
   const mockedMapInstance = { hasLayer: jest.fn().mockReturnValue(true) } as any
   const removeFromMock = jest.fn()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const addToMock = jest.fn<any, [Map]>(() => ({ removeFrom: removeFromMock }))
   const setInstanceMock = jest.fn()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const customAddMock = jest.fn<any, [AllLeafletInstances, Map]>(() => ({
     removeFrom: removeFromMock,
   }))
@@ -31,6 +33,7 @@ describe('useAddToMapInstance', () => {
   })
 
   it('should call the addTo method on the component', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     renderHook(() => useAddToMapInstance(instanceMock as any, setInstanceMock))
 
     expect(addToMock).toHaveBeenCalledWith(mockedMapInstance)
@@ -38,9 +41,8 @@ describe('useAddToMapInstance', () => {
   })
 
   it('should not call the addTo method, but call the customAdd function instead', () => {
-    renderHook(() =>
-      useAddToMapInstance(instanceMock as any, setInstanceMock, customAddMock),
-    )
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    renderHook(() => useAddToMapInstance(instanceMock as any, setInstanceMock, customAddMock))
 
     expect(addToMock).not.toHaveBeenCalledWith(mockedMapInstance)
     expect(customAddMock).toHaveBeenCalledWith(instanceMock, mockedMapInstance)
@@ -48,9 +50,8 @@ describe('useAddToMapInstance', () => {
   })
 
   it('should only call setInstance once', () => {
-    const { rerender } = renderHook(() =>
-      useAddToMapInstance(instanceMock as any, setInstanceMock),
-    )
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { rerender } = renderHook(() => useAddToMapInstance(instanceMock as any, setInstanceMock))
 
     rerender()
     rerender()
@@ -59,9 +60,8 @@ describe('useAddToMapInstance', () => {
   })
 
   it('should call removeFrom method when component will unmount', () => {
-    const { unmount } = renderHook(() =>
-      useAddToMapInstance(instanceMock as any, setInstanceMock),
-    )
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { unmount } = renderHook(() => useAddToMapInstance(instanceMock as any, setInstanceMock))
 
     unmount()
 

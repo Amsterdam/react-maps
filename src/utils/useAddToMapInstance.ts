@@ -25,9 +25,7 @@ export default <T extends AllLeafletInstances>(
   useEffect(() => {
     if (!componentInstance) {
       setComponentInstance(
-        customAdd
-          ? customAdd(instance, mapInstance)
-          : (instance.addTo(mapInstance) as T),
+        customAdd ? customAdd(instance, mapInstance) : (instance.addTo(mapInstance) as T),
       )
     }
   }, [instance, mapInstance, setInstance])
