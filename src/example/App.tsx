@@ -3,6 +3,9 @@ import 'leaflet/dist/leaflet.css'
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { Circle, Marker, Popup, Rectangle, TileLayer } from '..'
 import Map from '../Map'
+import markerIcon from 'leaflet/dist/images/marker-icon.png'
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
+import markerShadowIcon from 'leaflet/dist/images/marker-shadow.png'
 
 interface Props {
   children?: React.ReactNode
@@ -94,12 +97,9 @@ const App: FunctionComponent<Props> = () => {
           options={{
             icon: L.icon({
               /* eslint-disable global-require, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-var-requires */
-              iconUrl: require('leaflet/dist/images/marker-icon.png')
-                .default as string,
-              iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png')
-                .default as string,
-              shadowUrl: require('leaflet/dist/images/marker-shadow.png')
-                .default as string,
+              iconUrl: markerIcon,
+              iconRetinaUrl: markerIcon2x,
+              shadowUrl: markerShadowIcon,
               /* eslint-enable global-require, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-var-requires */
               iconSize: [25, 41],
               iconAnchor: [12, 41],
