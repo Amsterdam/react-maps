@@ -23,8 +23,8 @@ describe('useMapInstance', () => {
   })
 
   it("should throw an exception if the provider doesn't exist", () => {
-    const { result } = renderHook(() => useMapInstance())
-
-    expect(result).not.toBeDefined()
+    expect(() => renderHook(() => useMapInstance())).toThrow(
+      new Error('Unable to retrieve map instance, no provider could be found for the MapContext.'),
+    )
   })
 })
