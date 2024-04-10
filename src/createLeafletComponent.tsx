@@ -36,6 +36,7 @@ function createLeafletComponent<T extends AllLeafletInstances, U extends Array<u
     setInstance,
     customAdd,
   }) => {
+    // @ts-ignore
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
     const instance: T = L[leafletComponentName](...[...args, options])
     // useCallback to only set the instance once
