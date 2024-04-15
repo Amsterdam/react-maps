@@ -3,9 +3,13 @@ import type { Config } from '@jest/types'
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
   transform: {
-    '^.+\\.tsx?$': ['ts-jest', {//the content you'd placed at "global"
-      tsconfig: 'tsconfig.json',
-    }]
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        //the content you'd placed at "global"
+        tsconfig: 'tsconfig.json',
+      },
+    ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   moduleDirectories: ['node_modules'],
