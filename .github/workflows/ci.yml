@@ -20,5 +20,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         check-latest: true
 
-    - run: npm ci
+    - run: npm ci --include=optional
     - run: npm run ${{ matrix.job }}
