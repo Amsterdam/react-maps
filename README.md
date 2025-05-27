@@ -1,9 +1,10 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# This package is deprecated. For examples on how to implement Leaflet withing React, please visit [our website](https://developers.amsterdam/docs/projects/maps) 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # React Maps
-![](https://github.com/amsterdam/react-maps/actions/workflows/ci.yml/badge.svg)
-
-Please do not use this package anymore.
-
-All dependencies can also be found at: `npm install --save @amsterdam/arm-core` 
 
 Loosely implemented package using react with leaflet.
 As compared to the existing [react-leaflet](https://react-leaflet.js.org/), we want to set up things different in this repo:
